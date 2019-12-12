@@ -57,10 +57,7 @@ func main() {
 			// validate if the distance is within the search area - some results might exceed since the search area returned is a square
 			if v.Fields.Distance <= area[6] {
 				fmt.Printf("Airport\t%v\nLongitude\t%v\nLatitude\t%v\nDistance\t%v\n\n", v.Fields.Name, v.Fields.Lon, v.Fields.Lat, v.Fields.Distance)
-			} else {
-				fmt.Println("No ariports found in the designated area")
-			}
-
+			} 
 		}
 	}
 }
