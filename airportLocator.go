@@ -12,6 +12,18 @@ import (
 	"sort"
 )
 
+// Results type to mimic the json from the query
+type Results struct {
+	Rows []struct {
+		Fields struct {
+			Lat      float64 `json:"lat"`
+			Lon      float64 `json:"lon"`
+			Name     string  `json:"name"`
+			Distance float64
+		} `json:"fields"`
+	} `json:"rows"`
+}
+
 func main() {
 	area := []float64{0, 0, 0, 0}
 	//Some attempt at ASCII art, because why not !
@@ -44,17 +56,6 @@ func main() {
 	}
 }
 
-// Results type to mimic the json from the query
-type Results struct {
-	Rows []struct {
-		Fields struct {
-			Lat      float64 `json:"lat"`
-			Lon      float64 `json:"lon"`
-			Name     string  `json:"name"`
-			Distance float64
-		} `json:"fields"`
-	} `json:"rows"`
-}
 
 //function to get the coordinates of the search area. Longitude = (lon1 + lon2)/2, latitude = (lat1 + lat2)/2
 func calcCenter(calcArea []float64) []float64 {
